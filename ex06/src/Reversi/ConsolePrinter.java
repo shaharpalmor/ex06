@@ -116,32 +116,57 @@ public class ConsolePrinter implements Printer {
 
 	@Override
 	public void printError(Possible_OutCome outcome) {
-		// TODO Auto-generated method stub
+		 switch (outcome) {
+	        case OUT_OF_BOUND: printOutOfBound();
+	            break;
+	        case ILLEGAL_MOVE : printIllegalMove();
+	            break;
+	        case OCCUPIED_CELL : printOccupiedCell();
+	            break;
+	        default:
+	            break;
+	    }
 
 	}
 
 	@Override
 	public void printMenu() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Welcome to Reversi Game! :)");
+		System.out.println();
+		System.out.println("Choose an opponent type:");
+		System.out.println("1. a human local player");
+		System.out.println("2. an AIPlayer");
+		System.out.println("3. a remote player");
 	}
 
 	@Override
 	public void printInformingGameStarted(Owner currentOwner) {
-		// TODO Auto-generated method stub
+		if(currentOwner == Owner.PLAYER_1){
+			System.out.println("Game started!");
+	        System.out.println();
+	    }
+	    else{
+	    	System.out.println("Game started, waiting for player #1 move");
+	    	System.out.println();
+	    }
 
 	}
 
 	@Override
 	public void printWaitingForOtherPlayer(Owner currentOwner) {
-		// TODO Auto-generated method stub
+		if (currentOwner == Owner.PLAYER_1) {
+			System.out.println("Waiting for Player #2 move");
+			System.out.println();
+		} else {
+			System.out.println("waiting for player #1 move");
+			System.out.println();
+		}
 
 	}
 
 	@Override
 	public void printMessage(String s) {
-		// TODO Auto-generated method stub
-
+		System.out.println(s);
 	}
 
 	public void printOutOfBound() {
