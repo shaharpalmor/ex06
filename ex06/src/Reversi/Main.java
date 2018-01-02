@@ -8,7 +8,7 @@ public class Main {
 		GameState gameState = new GameState(board);
 		ReversiDefaultRules rules = new ReversiDefaultRules();
 		ConsolePrinter printer = new ConsolePrinter();
-		GameManager gameManager = new GameManager(board, player1, player2, printer, rules, false);
+		GameManager gameManager = new GameManager(gameState, player1, player2, printer, rules, false);
 		
 		gameManager.run();
 	}

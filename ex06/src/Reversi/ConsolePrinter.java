@@ -158,7 +158,7 @@ public class ConsolePrinter implements Printer {
 			System.out.println("Waiting for Player #2 move");
 			System.out.println();
 		} else {
-			System.out.println("waiting for player #1 move");
+			System.out.println("Waiting for Player #1 move");
 			System.out.println();
 		}
 
