@@ -10,12 +10,14 @@ public class Point {
 	public Point(int x, int y) {
 		this.x = x;
 		this.y = y;
+		this.flowDirection = new Vector<>();
 	}
 	
 	public Point(Point p) {
-		x = p.x;
-		y = p.y;
+		this.x = p.x;
+		this.y = p.y;
 		
+		this.flowDirection = new Vector<>();
 		// Copy all the directions vector with new allocations.
 	    for (int i = 0; i < p.flowDirection.size(); ++i) {
 	        Point pointToInsert = new Point(p.flowDirection.elementAt(i));
@@ -56,7 +58,7 @@ public class Point {
 	}
 
 	public String toString() {
-	    return "(" + x + ',' + y + ")";
+	    return "(" + (x + 1) + ',' + (y + 1) + ")";
 	}
 	
 	

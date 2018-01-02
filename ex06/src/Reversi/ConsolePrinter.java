@@ -12,6 +12,13 @@ public class ConsolePrinter implements Printer {
 	Player player1; // A reference to player 1 from GameManager.
 	Player player2; // A reference to player 2 from GameManager.
 
+	public ConsolePrinter(Board board, Player player1, Player player2) {
+		this.board = board;
+		this.player1 = player1;
+		this.player2 = player2;
+	}
+	
+
 	@Override
 	public void printBoard() {
 		int row = board.getRow();
@@ -21,9 +28,9 @@ public class ConsolePrinter implements Printer {
 
 		// Print the numbers of the columns.
 		System.out.print(" |");
-		for (int i = 1; i <= col; i++)
-			System.out.print(' ' + i + " |");
-
+		for (int i = 1; i <= col; i++) 
+			System.out.print(" " + i + " |");
+		
 		System.out.println();
 
 		// Print a line of commas.
@@ -52,7 +59,7 @@ public class ConsolePrinter implements Printer {
 
 		// Print the number of the row at the start
 		int printRow = currentRow + 1;
-		System.out.print(printRow + '|');
+		System.out.print(printRow + "|");
 
 		for (int currentCol = 0; currentCol < col; currentCol++) {
 			Point p = new Point(currentRow, currentCol);
@@ -60,9 +67,9 @@ public class ConsolePrinter implements Printer {
 			Owner symbolToCheck = board.getCell(p).getSymbol();
 
 			if (symbolToCheck == Owner.PLAYER_1)
-				System.out.println(' ' + player1.getSymbol() + " |");
+				System.out.print(" " + String.valueOf(player1.getSymbol()) + " |");
 			else if (symbolToCheck == Owner.PLAYER_2)
-				System.out.println(' ' + player2.getSymbol() + " |");
+				System.out.print(" " + String.valueOf(player2.getSymbol()) + " |");
 			else
 				System.out.print("   |");
 
@@ -88,7 +95,7 @@ public class ConsolePrinter implements Printer {
 				System.out.print("Your possible moves: ");
 
 			for (int i = 0; i < v.size(); ++i)
-				System.out.println(v.elementAt(i).toString() + " ");
+				System.out.print(v.elementAt(i).toString() + " ");
 
 			System.out.println("\n" + "Please enter your move row, col:");
 		}
@@ -108,7 +115,7 @@ public class ConsolePrinter implements Printer {
 	@Override
 	public void printEndOfGame(Player p, Status status1) {
 		if (status1 == Status.WIN)
-			System.out.println(" Won! congrats! Press any key to continue.");
+			System.out.println("Won! congrats! Press any key to continue.");
 		else
 			System.out.println("Draw! Press any key to continue.");
 

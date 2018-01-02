@@ -10,6 +10,8 @@ public class GameState {
 	
 	public GameState(Board board) {
 		this.board = board;
+		this.vec1 = new Vector<>();
+		this.vec2 = new Vector<>();
 	}
 	
 	public Board getBoard() {
