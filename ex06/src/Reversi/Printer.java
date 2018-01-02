@@ -1,4 +1,6 @@
 package Reversi;
+import java.util.Vector;
+
 import GeneralDef.*;;
 
 public interface Printer {
@@ -9,15 +11,15 @@ public interface Printer {
 
 	void printLastMove(Player player, Point point);
 
-	void printEndOfGame(Player p, status status1);
+	void printEndOfGame(Player p, Status status1);
 
-	void printError(possible_outcome outcome);
+	void printError(Possible_OutCome outcome);
 
 	void printMenu();
 
-	void printInformingGameStarted(owner currentOwner);
+	void printInformingGameStarted(Owner currentOwner);
 
-	void printWaitingForOtherPlayer(owner currentOwner);
+	void printWaitingForOtherPlayer(Owner currentOwner);
 
-	void printMessage(string s);
+	void printMessage(String s);
 }
