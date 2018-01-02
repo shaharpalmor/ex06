@@ -19,7 +19,6 @@ public class HumanPlayer implements Player {
 		int x;
 		int y;
 		char dummy;
-		int f;
 		Scanner scanIn = new Scanner(System.in);
 		x = scanIn.nextInt();
 		dummy  = scanIn.next().charAt(0);
