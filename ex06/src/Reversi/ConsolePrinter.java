@@ -74,19 +74,43 @@ public class ConsolePrinter implements Printer {
 
 	@Override
 	public void printNextPlayerMove(Player p, Vector<Point> v) {
-		// TODO Auto-generated method stub
 
+		System.out.println(p.getSymbol() + ": It's your move.");
+
+		// Check if there are any possible moves at all.
+		if (v.isEmpty())
+			System.out.println("No possible moves. Play passes back to the other player. Press any key to continue.");
+		else {
+			// Print the possible moves of the player.
+			if (v.size() == 1)
+				System.out.print("Your possible move is: ");
+			else
+				System.out.print("Your possible moves: ");
+
+			for (int i = 0; i < v.size(); ++i)
+				System.out.println(v.elementAt(i).toString() + " ");
+
+			System.out.println("\n" + "Please enter your move row, col:");
+		}
 	}
 
 	@Override
 	public void printLastMove(Player player, Point point) {
-		// TODO Auto-generated method stub
+
+		// If the point is null the last player didn't play.
+		if (point == null || point.isEqual(new Point(-1, -1)))
+			System.out.println(player.getSymbol() + " didn't played.");
+		else
+			System.out.println(player.getSymbol() + " played " + point.toString());
 
 	}
 
 	@Override
 	public void printEndOfGame(Player p, Status status1) {
-		// TODO Auto-generated method stub
+		if (status1 == Status.WIN)
+			System.out.println(" Won! congrats! Press any key to continue.");
+		else
+			System.out.println("Draw! Press any key to continue.");
 
 	}
 
@@ -120,4 +144,16 @@ public class ConsolePrinter implements Printer {
 
 	}
 
+	public void printOutOfBound() {
+		System.out.println("Point out of bound! enter a valid point");
+	}
+
+	public void printOccupiedCell() {
+		System.out.println("Occupied cell! enter a valid point");
+
+	}
+
+	public void printIllegalMove() {
+		System.out.println("Illegal move! enter a valid point");
+	}
 }
