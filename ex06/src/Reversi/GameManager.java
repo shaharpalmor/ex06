@@ -100,9 +100,9 @@ public class GameManager {
 	        if (winner == Owner.PLAYER_2)
 	            printer.printEndOfGame(player2, status1);
 
-	        char dummy;
 			Scanner scanIn = new Scanner(System.in);
-	        dummy = scanIn.next().charAt(0);
+	        char dummy = scanIn.next().charAt(0);
+	        scanIn.close();
 	    }
 
 	    if (status1 == Status.DRAW)
